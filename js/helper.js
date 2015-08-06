@@ -1,14 +1,4 @@
 /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
@@ -40,7 +30,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectImage = '<img class="project-image" src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
@@ -75,12 +65,12 @@ The next few lines about clicks are for the Collecting Click Locations quiz in L
 clickLocations = [];
 
 function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
+  // clickLocations.push(
+  //   {
+  //     x: x,
+  //     y: y
+  //   }
+  // );
   console.log('x location: ' + x + '; y location: ' + y);
 }
 
@@ -96,6 +86,7 @@ See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
+
 
 
 /*
@@ -134,12 +125,37 @@ function initializeMap() {
 
     // iterates through work locations and appends each location to
     // the locations array
+    // I added the if statement because my work info was producing a lot of doubles in the array.  Just figured it was 
+    // best to reduce this.  Also, it seemed to be causing a problem with adding map markers to the map, although I 
+    // haven't pin pointed why that is yet.
+    // Worked on it for a bit, started using console.log() to produce output of what was happening when I noticed how many times
+    // Peachtree City and Atlanta was in the array.  Tried to figure out why some places still were not being added.  When I added 
+    // the if statement the problem of some places not being added was fixed immediately.  
+    // I did console.log() google.maps.places.PlacesServiceStatus.OK in the callback function and after a few calls I got null results.
+    // I felt google started blocking me after I made several method calls to their script.  Not sure this was the issue, but wanted to continue
+    // with the project after an afternoon spent working on this one problem, and this seemed to get me in the right direction.
     for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
+      // I noticed MDN had .includes() as a array method, but it was marked as experimental so I thought I would stay away from it for now.
+      // However, at least I know it exists and will work well in the future, and checking for the index of an item isn't too complicated.
+      if (locations.indexOf(work.jobs[job].location) === -1) {
+        locations.push(work.jobs[job].location);
+      }
+    }
+
+    // iterates through extra locations (an object I added in ResumeBuilder.js) and appends each location to
+    // the locations array
+    for (var place in extraLocations) {
+      locations.push(extraLocations[place].location);
     }
 
     return locations;
   }
+
+// infoWindows are the little helper windows that open when you click
+// or hover over a pin on a map. They usually contain more information
+// about a location.
+var infoWindow = new google.maps.InfoWindow();
+
 
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
@@ -149,10 +165,14 @@ function initializeMap() {
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
-    var lat = placeData.geometry.location.k;  // latitude from the place service
-    var lon = placeData.geometry.location.D;  // longitude from the place service
+    var lat = placeData.geometry.location.lat();  // latitude from the place service
+    var lon = placeData.geometry.location.lng();  // longitude from the place service
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
+
+    // I created the content variable to hold some info on the places I have lived or worked. 
+    // getInfoWindowContent() is in resumeBuilder.js on line 328. 
+    var content = getInfoWindowContent(name);
 
     // marker is an object with additional data about the pin for a single location
     var marker = new google.maps.Marker({
@@ -161,16 +181,19 @@ function initializeMap() {
       title: name
     });
 
-    // infoWindows are the little helper windows that open when you click
-    // or hover over a pin on a map. They usually contain more information
-    // about a location.
-    var infoWindow = new google.maps.InfoWindow({
-      content: name
-    });
+    // This is where the infoWindow declaration was when I opened the file (it is now on line 157).  However, what I found is that when I clicked on 
+    // different map markers a new infoWindow would open, and the old infoWindow would stay open as well.  Google's API 
+    // states that only one infoWindow should be open at one time, and if you create one infoWindow object, then only one would
+    // open at one time.  By moving the infoWindow creation outside of this function's definition, I created the infoWindow with 
+    // global scope, instead of a scope within this function.  This article helped me get there too:
+    // http://stackoverflow.com/questions/1875596/have-just-one-infowindow-open-in-google-maps-api-v3
+    // But this cool, I feel like between Google's API and the Stack Overflow article I actually understood what I was doing and the possible
+    // ramifications of it all.  I have Udacity to thank for that.
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.setContent(content);
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
@@ -204,7 +227,6 @@ function initializeMap() {
 
     // Iterates through the array of locations, creates a search object for each location
     for (var place in locations) {
-
       // the search request object
       var request = {
         query: locations[place]
@@ -225,7 +247,6 @@ function initializeMap() {
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
-
 }
 
 /*
@@ -233,11 +254,10 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
-
+window.addEventListener('load', initializeMap);
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
-  // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+window.addEventListener('resize', function(e) {
+//   Make sure the map bounds get updated on page resize
+map.fitBounds(mapBounds);
+});

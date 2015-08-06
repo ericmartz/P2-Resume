@@ -125,12 +125,12 @@ function initializeMap() {
 
     // iterates through work locations and appends each location to
     // the locations array
-    // I added the if statement because my work info was producing a lot of doubles in the array.  Just figured it was 
-    // best to reduce this.  Also, it seemed to be causing a problem with adding map markers to the map, although I 
+    // I added the if statement because my work info was producing a lot of doubles in the array.  Just figured it was
+    // best to reduce this.  Also, it seemed to be causing a problem with adding map markers to the map, although I
     // haven't pin pointed why that is yet.
     // Worked on it for a bit, started using console.log() to produce output of what was happening when I noticed how many times
-    // Peachtree City and Atlanta was in the array.  Tried to figure out why some places still were not being added.  When I added 
-    // the if statement the problem of some places not being added was fixed immediately.  
+    // Peachtree City and Atlanta was in the array.  Tried to figure out why some places still were not being added.  When I added
+    // the if statement the problem of some places not being added was fixed immediately.
     // I did console.log() google.maps.places.PlacesServiceStatus.OK in the callback function and after a few calls I got null results.
     // I felt google started blocking me after I made several method calls to their script.  Not sure this was the issue, but wanted to continue
     // with the project after an afternoon spent working on this one problem, and this seemed to get me in the right direction.
@@ -154,6 +154,7 @@ function initializeMap() {
 // infoWindows are the little helper windows that open when you click
 // or hover over a pin on a map. They usually contain more information
 // about a location.
+// Moved this from line from 185 to change the scope to a global scope.  See comments on line 185 for explanation.
 var infoWindow = new google.maps.InfoWindow();
 
 
@@ -181,10 +182,10 @@ var infoWindow = new google.maps.InfoWindow();
       title: name
     });
 
-    // This is where the infoWindow declaration was when I opened the file (it is now on line 157).  However, what I found is that when I clicked on 
-    // different map markers a new infoWindow would open, and the old infoWindow would stay open as well.  Google's API 
-    // states that only one infoWindow should be open at one time, and if you create one infoWindow object, then only one would
-    // open at one time.  By moving the infoWindow creation outside of this function's definition, I created the infoWindow with 
+    // This is where the infoWindow declaration was when I opened the file (it is now on line 157).  However, what I found is that when I clicked on
+    // different map markers a new infoWindow would open, and the old infoWindow would stay open as well.  Google's API
+    // states that only one infoWindow should be open at a time, and if you create one infoWindow object, then only one would be
+    // open at one time. By moving the infoWindow creation outside of this function's definition, I created the infoWindow with
     // global scope, instead of a scope within this function.  This article helped me get there too:
     // http://stackoverflow.com/questions/1875596/have-just-one-infowindow-open-in-google-maps-api-v3
     // But this cool, I feel like between Google's API and the Stack Overflow article I actually understood what I was doing and the possible

@@ -168,7 +168,7 @@ var projects = {
 		{
 			"title" : "Cranford Homes",
 			"date" : "January 2014",
-			"description" : "This client had used on of those 'build your own websites' services and was very unhappy with the outcome. This is the first project I had to use a JS framework to display pictures.  I used jCarousel.",
+			"description" : "This client had used one of those 'build your own website' services and was very unhappy with the outcome. This is the first project I had to use a JS framework to display pictures.  I used jCarousel.",
 			"images" : ["images/projects/cranford-homes.jpg"],
 			"url" : "http://cranfordhomesga.net/"
 		},
@@ -256,7 +256,7 @@ var extraLocations = [
 // to figure it all out, but with Udacity and the API's and one Stack Overflow article, I was able to change the code I received from Udacity
 // and I got it all working in a way I am proud of.
 
-// I created the locationInfo object to be used by the getName function.  It stores locations and a short description for the location and a image 
+// I created the locationInfo object to be used by the getInfoWindowContent function (helper.js line 175).  It stores locations and a short description for the location and a image 
 // url for displaying in the infoWindow
 // The key type is a variable that holds three options: worked (for places I have worked), lived (for places I have lived), want (for places I want to live)
 // Honestly, I feel this would best work in another file, although I know that would be another call to a web server.  Just feels like a lot of bloat.
@@ -308,8 +308,7 @@ var locationInfo = [
 		"image_alt" : "An image of a young women standing on a rusted metal beam extended into a look. She is looking out towards the lake.",
 		"image_attribute" : "Eric Martz",
 		"type" : "lived"
-	}
-	,
+	},
 	{
 		"place" : "Quantico, VA 22134, USA",
 		"description" : "I lived in Quantico in just the third grade. Ironically, my wife was living in Washington DC at the same time. We both ended up in Peachtree City together around 1996.",

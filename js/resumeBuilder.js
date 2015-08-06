@@ -98,16 +98,10 @@ var work = {
 			"description" : "As the Assistant Branch Manager my primary responsibility was to evaluate the needs of customers and offer appropriate financial products.  I also assisted in training bank personnel, managing the branch's day-to-day operations, and worked on any assigned special projects."
 		},
 		{
-			// So no idea how to handle this at the moment.  Just got it on the back burner.
-			// Not happy I worked for or ever went to this church.  Don't want people going to the website, or anything.  
-			// If I thought I could get away with not saying I worked here, I would.  But that would cause a 3 year gap in my employment.
-			// So yeah, for the project I am Rickrolling anyone that sees it and clicks the link.  But I wouldn't publish this for people to see.
-			// As if a Google search wouldn't be difficult. Yeah, I know...
-			// Later update: I guess I could just use JS to strip out the link all together?  That would be conspicuous.  But getting rickrolled is conspicuous too.
 			"employer" : "Gracepointe Church",
 			"title" : "Children's/Youth Pastor",
 			"location" : "Peachtree City, GA",
-			"url" : "http://listenonrepeat.com/watch/?v=dQw4w9WgXcQ",
+			"url" : "http://gracepointechurch.com/index.php/ministries",
 			"dates" : {
 				"start_date" : "April 2003",
 				"end_date" : "March 2006"

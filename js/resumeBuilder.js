@@ -6,7 +6,7 @@
 var bio = {
 	"name" : "Eric Martz",
 	"role" : "Aspiring Web Developer",
-	"welcomeMessage" : "Hi, I am Eric Martz.",
+	"welcomeMessage" : "Hi, I am Eric Martz.  This is my resume project from Udacity.  You'll see below that I have quite an array of experience.  A few years ago, I started to mess around with web design because I thought it was interesting. Specifically, I was amazed at how some websites truly felt like works of art.  After learning some HTML and CSS, and actually getting to produce a professional website, I dabbled with Ruby on Rails and Python, but always came back to web design and development.  So I continued learning web development and have now enrolled in Udacity.  My goal is to transition full time into web development.",
 	"pictureURL" : "images/eric_m.jpg",
 	"contacts" : {
 		"mobile" : "678.859.0929",
@@ -24,8 +24,8 @@ var bio = {
 
 		$("#header").prepend(myRole);
 		$("#header").prepend(myName);
-		$("#header").append(myMessage);
 		$("#header").append(myPic);
+		$("#header").append(myMessage);
 	},
 	"displayContact" : function addContactInformation() {
 		var myMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);

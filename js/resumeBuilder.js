@@ -175,8 +175,8 @@ var projects = {
 		{
 			"title" : "Warthen RV Park",
 			"date" : "August 2014",
-			"description" : "I did not design this website, but I made some updates to help with the websites SEO.",
-			"images" : [ ],
+			"description" : "I did not design this website, but I made some updates to help with the website with SEO.",
+			"images" : ["images/projects/warthen-rv-park.jpg"],
 			"url" : "http://www.warthen-rv-park.com/"
 		},
 		{

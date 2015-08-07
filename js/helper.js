@@ -26,11 +26,11 @@ var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
-var HTMLprojectStart = '<div class="project-entry"></div>'; //Added the col-md-4 class here for styling.
-var HTMLprojectTitle = '<h2><a href="#">%data%</a></h2>'; // Added and H2 here for effect
+var HTMLprojectStart = '<div class="project-entry"></div>';
+var HTMLprojectTitle = '<h3><a href="#">%data%</a></h3>'; // Added and H2 here for effect
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img class="project-image" src="%data%">';
+var HTMLprojectImage = '<img class="project-image img-responsive" src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';

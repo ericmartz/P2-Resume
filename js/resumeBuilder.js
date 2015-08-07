@@ -161,7 +161,7 @@ var projects = {
 		{
 			"title" : "Gordon Management",
 			"date" : "November 2011",
-			"description" : "This is the second professional website I built. During this project I learned how to managethe entire life cycle of web development.  It was a great project to work on.",
+			"description" : "This is the second professional website I built. During this project I learned how to manage the entire life cycle of web development.  It was a great project to work on.",
 			"images" : ["images/projects/gordon-mgmt.jpg"],
 			"url" : "http://gordonmanagement.com/"
 		},
@@ -187,13 +187,6 @@ var projects = {
 			"url" : "http://seldomscenetheatre.com/"
 		},
 		{
-			"title" : "Flander's Nurseries",
-			"date" : "In Process",
-			"description" : "An interesting project for a client that does landscaping and land management.  It is still in process, but I am liking the work so far.",
-			"images" : ["images/projects/flanders-nursery.jpg"],
-			"url" : "http://development.ericmartz.com/flanders/"
-		},
-		{
 			"title" : "Udacity Project 1 - Build a Portfolio",
 			"date" : "July 2015",
 			"description" : "What I learned most in this project is how to code more professionally.  I was not only proud of the website, but more so of the code I wrote for it. Also, in this project I utilized Bootstrap, Bootstrap Modals, Picturefill and Grunt.",
@@ -211,7 +204,7 @@ var projects = {
 			var myProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 			var myProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[0]);
 
-			$("#projects").append(divColumn4);
+			$("#projects").append(divColumn4); // Adding bootstrap columns for the projects
 			$(".col-md-4:last").append(HTMLprojectStart);
 			$(".project-entry:last").append(myProjectImage);
 			$(".project-entry:last").append(myProjectTitle);

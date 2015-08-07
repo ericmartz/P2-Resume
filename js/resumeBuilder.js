@@ -356,7 +356,7 @@ function getInfoWindowContent(location){
 			content = content + "<p>" + locationInfo[place].description + "</p>";
 			content = content + "<div class='info-window-pic-container'>"
 			content = content + "<img class='info-window-pic' src='" + locationInfo[place].image_url + "' alt='" + locationInfo[place].image_alt + "'>"
-			content = content + "<span class='map-image-caption'> Image courtesy of " + locationInfo[place].image_attribute + "</span>"
+			content = content + "<p class='map-image-caption'> Image courtesy of " + locationInfo[place].image_attribute + "</>"
 			content = content + "</div>"
 			content = content + "</div>"
 		}

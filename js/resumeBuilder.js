@@ -95,7 +95,7 @@ var work = {
 				"start_date" : "March 2006",
 				"end_date" : "March 2007"
 			},
-			"description" : "As the Assistant Branch Manager my primary responsibility was to evaluate the needs of customers and offer appropriate financial products.  I also assisted in training bank personnel, managing the branch's day-to-day operations, and worked on any assigned special projects."
+			"description" : "As the Assistant Branch Manager my primary responsibility was to evaluate the needs of customers and offer appropriate financial products.  I also assisted in training bank personnel, managed the branch's day-to-day operations, and worked on any assigned special projects."
 		},
 		{
 			"employer" : "Gracepointe Church",

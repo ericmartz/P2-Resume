@@ -6,7 +6,7 @@
 var bio = {
 	"name" : "Eric Martz",
 	"role" : "Aspiring Web Developer",
-	"welcomeMessage" : "Hi, I am Eric Martz.  This is my resume project from Udacity.  You'll see below that I have quite an array of experience.  A few years ago, I started to mess around with web design because I thought it was interesting. Specifically, I was amazed at how some websites truly felt like works of art.  After learning some HTML and CSS, and actually getting to produce a professional website, I dabbled with Ruby on Rails and Python, but always came back to web design and development.  So I continued learning web development and have now enrolled in Udacity.  My goal is to transition full time into web development.",
+	"welcomeMessage" : "Hi, I am Eric Martz.  This is my resume project from Udacity.  You'll see below that I have quite an array of experience.  A few years ago, I started to mess around with web design because I thought it was interesting. Specifically, I was amazed at how some websites truly felt like works of art: they were beautiful and moving.  After learning some HTML and CSS, and actually getting to produce a professional website, I dabbled with Ruby on Rails and Python, but always came back to web design and development.  So I continued learning web development and have now enrolled in Udacity.  My goal is to transition full time into web development.",
 	"pictureURL" : "images/eric_m.jpg",
 	"contacts" : {
 		"mobile" : "678.859.0929",
@@ -196,12 +196,14 @@ var projects = {
 		{
 			"title" : "Udacity Project 1 - Build a Portfolio",
 			"date" : "July 2015",
-			"description" : "What I learned most in this project is how to code more professionally.  I was not only proud of the website, but more so of the code I wrote for it. Also, in this project I utilized Bootstrap, Bootstrap Modals and Picturefill.",
+			"description" : "What I learned most in this project is how to code more professionally.  I was not only proud of the website, but more so of the code I wrote for it. Also, in this project I utilized Bootstrap, Bootstrap Modals, Picturefill and Grunt.",
 			"images" : ["images/projects/udacity-project-1.jpg"],
 			"url" : "http://ericmartz.github.io/BuildAPortfolio/"
 		}
 	],
 	"display" : function addProjectInformation() {
+		var divColumn4 = '<div class="col-md-4">';
+		var divClosing = '</div>';
 		for (var project in projects.projects) {
 			var myProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
 			myProjectTitle = myProjectTitle.replace("#", projects.projects[project].url);
@@ -209,11 +211,14 @@ var projects = {
 			var myProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 			var myProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[0]);
 
-			$("#projects").append(HTMLprojectStart);
+			$("#projects").append(divColumn4);
+			$(".col-md-4:last").append(HTMLprojectStart);
+			$(".project-entry:last").append(myProjectImage);
 			$(".project-entry:last").append(myProjectTitle);
 			$(".project-entry:last").append(myProjectDate);
 			$(".project-entry:last").append(myProjectDescription);
-			$(".project-entry:last").append(myProjectImage);
+			$(".col-md-4:last").append(divClosing);
+			
 		}
 	}
 }
@@ -352,7 +357,7 @@ function getInfoWindowContent(location){
 		if (locationInfo[place].place === location) {
 			placeType = getPlaceType(locationInfo[place].type);
 
-			content = content + "<div class='info-window'>"
+			content = content + "<div class='info-window clearfix'>"
 			content = content + "<h4 class='map-title'>" + locationInfo[place].place + "</h4>";
 			content = content + "<h5 class='map-title'>" + placeType + "</h5>";
 			content = content + "<p>" + locationInfo[place].description + "</p>";

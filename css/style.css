@@ -24,7 +24,11 @@
   height: 400px;
   border: 1px solid black;
   margin-top: 20px;
+<<<<<<< HEAD
   box-shadow: 3px 3px 5px gray;
+=======
+  box-shadow: 5px 5px 7px gray;
+>>>>>>> 9e9a4fccead3b97802928018ff966955f037359a
 }
 
 h1 {

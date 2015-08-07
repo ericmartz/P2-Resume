@@ -196,7 +196,7 @@ var projects = {
 		{
 			"title" : "Udacity Project 1 - Build a Portfolio",
 			"date" : "July 2015",
-			"description" : "What I learned most in this project is how to code more professionally.  I was not only proud of the website, but more so of the code I wrote for it.",
+			"description" : "What I learned most in this project is how to code more professionally.  I was not only proud of the website, but more so of the code I wrote for it. Also, in this project I utilized Bootstrap, Bootstrap Modals and Picturefill.",
 			"images" : ["images/projects/udacity-project-1.jpg"],
 			"url" : "http://ericmartz.github.io/BuildAPortfolio/"
 		}

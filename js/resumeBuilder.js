@@ -13,6 +13,7 @@ var $workEntry = '.work-entry:last';
 var $projects = '#projects';
 var $column4 = '.col-md-4:last';
 var $projectEntry = '.project-entry:last';
+var $footerContacts = '#footerContacts';
 
 var bio = {
 	'name' : 'Eric Martz',
@@ -43,6 +44,7 @@ var bio = {
 		var myLocation = HTMLlocation.replace(data, bio.contacts.location);
 
 		$($topContacts).append(myMobile, myEmail, myGitHub, myLocation);
+		$($footerContacts).append(myMobile, myEmail, myGitHub, myLocation);
 	}
 }
 

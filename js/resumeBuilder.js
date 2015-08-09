@@ -64,13 +64,13 @@ var education = {
 		'url' : 'http://devry.edu'
 	}],
 	'display' : function() {
-		for (var school in education.schools) {
-			var mySchoolName = HTMLschoolName.replace(data, education.schools[school].name);
-			mySchoolName = mySchoolName.replace('#', education.schools[school].url)
-			var mySchoolDegree = HTMLschoolDegree.replace(data, education.schools[school].degree);
-			var mySchoolDates = HTMLschoolDates.replace(data, education.schools[school].dates.date_started + ' - ' + education.schools[school].dates.date_completed);
-			var mySchoolLocation = HTMLschoolLocation.replace(data, education.schools[school].location);
-			var mySchoolMajor = HTMLschoolMajor.replace(data, education.schools[school].major);
+		for (var i=0; i < education.schools.length; i++) {
+			var mySchoolName = HTMLschoolName.replace(data, education.schools[i].name);
+			mySchoolName = mySchoolName.replace('#', education.schools[i].url)
+			var mySchoolDegree = HTMLschoolDegree.replace(data, education.schools[i].degree);
+			var mySchoolDates = HTMLschoolDates.replace(data, education.schools[i].dates.date_started + ' - ' + education.schools[i].dates.date_completed);
+			var mySchoolLocation = HTMLschoolLocation.replace(data, education.schools[i].location);
+			var mySchoolMajor = HTMLschoolMajor.replace(data, education.schools[i].major);
 
 			$($education).append(HTMLschoolStart);
 			$($educationEntry).append(mySchoolName + mySchoolDegree, mySchoolDates, mySchoolLocation, mySchoolMajor);
@@ -136,13 +136,13 @@ var work = {
 		}
 	],
 	'display' : function() {
-		for (var job in work.jobs) {
-			var myEmployer = HTMLworkEmployer.replace(data, work.jobs[job].employer);
-			myEmployer = myEmployer.replace('#', work.jobs[job].url)
-			var myTitle = HTMLworkTitle.replace(data, work.jobs[job].title);
-			var myWorkDates = HTMLworkDates.replace(data, work.jobs[job].dates.start_date + ' - ' + work.jobs[job].dates.end_date);
-			var myWorkLocation = HTMLworkLocation.replace(data, work.jobs[job].location);
-			var myWorkDescription = HTMLworkDescription.replace(data, work.jobs[job].description);
+		for (var i=0; i < work.jobs.length; i++) {
+			var myEmployer = HTMLworkEmployer.replace(data, work.jobs[i].employer);
+			myEmployer = myEmployer.replace('#', work.jobs[i].url)
+			var myTitle = HTMLworkTitle.replace(data, work.jobs[i].title);
+			var myWorkDates = HTMLworkDates.replace(data, work.jobs[i].dates.start_date + ' - ' + work.jobs[i].dates.end_date);
+			var myWorkLocation = HTMLworkLocation.replace(data, work.jobs[i].location);
+			var myWorkDescription = HTMLworkDescription.replace(data, work.jobs[i].description);
 
 			$($workExperience).append(HTMLworkStart);
 			$($workEntry).append(myEmployer + myTitle, myWorkDates, myWorkLocation, myWorkDescription);
@@ -198,12 +198,12 @@ var projects = {
 	'display' : function() {
 		var divColumn4 = '<div class="col-md-4">';
 		var divClosing = '</div>';
-		for (var project in projects.projects) {
-			var myProjectTitle = HTMLprojectTitle.replace(data, projects.projects[project].title);
-			myProjectTitle = myProjectTitle.replace('#', projects.projects[project].url);
-			var myProjectDate = HTMLprojectDates.replace(data, projects.projects[project].date);
-			var myProjectDescription = HTMLprojectDescription.replace(data, projects.projects[project].description);
-			var myProjectImage = HTMLprojectImage.replace(data, projects.projects[project].images[0]);
+		for (var i=0; i < projects.projects.length; i++) {
+			var myProjectTitle = HTMLprojectTitle.replace(data, projects.projects[i].title);
+			myProjectTitle = myProjectTitle.replace('#', projects.projects[i].url);
+			var myProjectDate = HTMLprojectDates.replace(data, projects.projects[i].date);
+			var myProjectDescription = HTMLprojectDescription.replace(data, projects.projects[i].description);
+			var myProjectImage = HTMLprojectImage.replace(data, projects.projects[i].images[0]);
 
 			$($projects).append(divColumn4); // Adding bootstrap columns for the projects
 			$($column4).append(HTMLprojectStart);
@@ -343,19 +343,19 @@ var locationInfo = [
 function getInfoWindowContent(location){
 	var content = '';
 	var placeType = '';
-	for (var place in locationInfo) {
-		if (locationInfo[place].place === location) {
-			placeType = getPlaceType(locationInfo[place].type);
+	for (var i=0; i < locationInfo.length; i++) {
+		if (locationInfo[i].place === location) {
+			placeType = getPlaceType(locationInfo[i].type);
 
-			content = content + '<div class="info-window clearfix">'
-			content = content + '<h4 class="map-title">' + locationInfo[place].place + '</h4>';
-			content = content + '<h5 class="map-title">' + placeType + '</h5>';
-			content = content + '<p>' + locationInfo[place].description + '</p>';
-			content = content + '<div class="info-window-pic-container">'
-			content = content + '<img class="info-window-pic" src="' + locationInfo[place].image_url + '" alt="' + locationInfo[place].image_alt + '">'
-			content = content + '<p class="map-image-caption"> Image courtesy of ' + locationInfo[place].image_attribute + '</>'
-			content = content + '</div>'
-			content = content + '</div>'
+			content += '<div class="info-window clearfix">'
+			content += '<h4 class="map-title">' + locationInfo[i].place + '</h4>';
+			content += '<h5 class="map-title">' + placeType + '</h5>';
+			content += '<p>' + locationInfo[i].description + '</p>';
+			content += '<div class="info-window-pic-container">'
+			content += '<img class="info-window-pic" src="' + locationInfo[i].image_url + '" alt="' + locationInfo[i].image_alt + '">'
+			content += '<p class="map-image-caption"> Image courtesy of ' + locationInfo[i].image_attribute + '</>'
+			content += '</div>'
+			content += '</div>'
 		}
 	}
 	return content;

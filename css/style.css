@@ -1,3 +1,9 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
 /* 
 *
 *	Styles for links
@@ -62,6 +68,10 @@ body {
 	display: inline;
 	padding: 0 0 0 .75em;
 	font-size: 2em;
+}
+
+.main-nav ul li:first-of-type {
+	padding: 0;
 }
 
 /* 
@@ -206,4 +216,117 @@ body {
 
 #footerContacts li:first-of-type {
 	padding: 0;
+}
+
+/*
+*
+*	So this is ugly.  Developed on a screen with 1450px and then worked my way down.  The opposite of mobile first design.  I consider this lesson learned.
+*
+*/
+@media screen and (max-width: 85.625em){ /*1390px */
+	.main-nav ul li {
+		padding: 0 0 0 .50em;
+	}
+}
+
+@media screen and (max-width: 79.375em){ /* 1270px */
+	.main-nav ul li {
+		font-size: 1.75em;
+	}
+
+	h1 {
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 73.125em){ /* 1170px */
+	.welcome-message {
+		font-size: 1.75em;
+	}
+
+	.project-image {
+		max-height: 10.9375em;
+	}
+}
+
+@media screen and (max-width: 70.625em){ /* 1130px */
+	.main-nav ul li {
+		font-size: 1.75em;
+	}
+
+	h1 {
+		font-size: 1.5em;
+	}
+
+	.role {
+		font-size: .75em;
+	}
+}
+
+@media screen and (max-width: 70.625em){ /* 1080px */
+	.main-nav ul li {
+		font-size: 1.5em;
+	}
+
+	h1 {
+		font-size: 1.5em;
+	}
+
+	.welcome-message {
+		font-size: 1.5em;
+	}
+
+	.biopic {
+		max-width: 18.75em;
+		width: 100%;
+		margin-left: 1em;
+	}
+}
+
+@media screen and (max-width: 61.8755em){ /* 990px */
+	.project-image {
+		max-height: 14.0625em;
+	}
+}
+
+@media screen and (max-width: 58.4375em){ /* 935px */
+	#title,
+	.contacts,
+	.main-nav {
+		width: 100%;
+		display: block;
+		float: none;
+		margin: auto;
+		text-align: center;
+	}
+
+	#name {
+		font-size: 2em;
+	}
+
+	.main-nav {
+		margin: 0 0 2em 0;
+	}
+
+	.role {
+		font-size: 1em;
+	}
+}
+
+@media screen and (max-width: 49.875em){ /* 798px */
+	.welcome-message {
+		float: none;
+		display: block;
+	}
+
+	.biopic {
+		float: none;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 29.375em){ /* 798px */
+	.project-image {
+		max-height: 10.9375em;
+	}
 }

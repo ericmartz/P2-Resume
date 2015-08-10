@@ -1,17 +1,20 @@
 /*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
+*
+*	So on the index.html I converted spaces to tabs because that is how I generally have things set up.  It tooks a long time to get everything
+*	set up right, so I am leaving this files with 2 spaces for a tab.  I cannot even begin to imagine how long it would take to fix.
+*	I did try View -> Indentation -> Convert Indentation to Tabs, but that didn't really work out right.
+*
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span class="role">%data%</span><hr/>';
+var HTMLheaderRole = '<p class="role">%data%</p>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile </span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="orange-text">email </span><span class="white-text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter </span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="orange-text">github </span><span class="white-text">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><span class="orange-text">blog </span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="orange-text">location </span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -20,16 +23,16 @@ var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills"
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkEmployer = '<a class="work-title" href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
+var HTMLworkDates = '<div class="work-date">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<p>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<h3><a href="#">%data%</a></h3>'; // Added and H2 here for effect
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
+var HTMLprojectTitle = '<h3 class="project-title"><a href="#">%data%</a></h3>'; // Added and H2 here for effect
+var HTMLprojectDates = '<div class="project-date">%data%</div>';
+var HTMLprojectDescription = '<p class="project-description">%data%</p>';
 var HTMLprojectImage = '<img class="project-image img-responsive" src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
@@ -154,7 +157,7 @@ function initializeMap() {
 // infoWindows are the little helper windows that open when you click
 // or hover over a pin on a map. They usually contain more information
 // about a location.
-// Moved this from line from 185 to change the scope to a global scope.  See comments on line 185 for explanation.
+// Moved this from line 185 to change the scope to a global scope.  See comments on line 185 for explanation.
 var infoWindow = new google.maps.InfoWindow();
 
 

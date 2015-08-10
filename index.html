@@ -1,75 +1,83 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="utf-8">
-  <title>Eric Martz's Online Resume</title>
+	<meta charset="utf-8">
+	<title>Eric Martz's Online Resume</title>
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 
-  <script src="js/jQuery.js"></script>
-  <script src="js/helper.js"></script>
+	<script src="js/jQuery.js"></script>
+	<script src="js/helper.js"></script>
 
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body unresolved>
-  <div id="main" class="container-fluid">
-    <div id="header" class="center-content clearfix">
-      <ul id="topContacts" class='flex-box'></ul>
-    </div>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
-    </div>
-    <div class="row">
-      <div id="projects">
-        <h2>Projects</h2>
-      </div>
-    </div>
-    <div id="education" class='gray'>
-      <h2>Education</h2>
-    </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
+	<!-- 
+		So I went ahead and changed up the layout of the HTML.  Also, changed some of the div's to HTML5 elements.
+		Maybe I wasn't supposed to, but I wanted to take the challenge of the layout and try to bring it closer to best practices.
+	 -->
+	<div id="main" class="container-fluid">
+		<header class="head clearfix">
+			<div class="row">
+				<div class="col-md-2">
+					<div id="title"></div>
+				</div>
+				<div class="col-md-7">
+					<nav class="main-nav">
+						<ul>
+							<li><a href="#intro">Intro</a></li>
+							<li><a href="#workExperience">Experience</a></li>
+							<li><a href="#projects">Projects</a></li>
+							<li><a href="#education">Education</a></li>
+							<li><a href="#mapDiv">Map</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-md-3 contacts">
+					<ul id="topContacts" class='flex-box'></ul>
+				</div>
+			</div>
+		</header>
+		<div id="intro"class="row"></div>
+		<div id="workExperience" class="row">
+			<h2>Work Experience</h2>
+		</div>
+		<div id="projects" class="row">
+			<h2>Projects</h2>
+		</div>
+		<div id="education" class='row'>
+			<h2>Education</h2>
+		</div>
+		<div id="mapDiv">
+			<h2>Where I've Lived and Worked</h2>
+		</div>
+		<div id="letsConnect" class='row'>
+			<h2>Let's Connect</h2>
+			<ul id="footerContacts" class="flex-box"></ul>
+		</div>
+	</div>
 
-  <script src="js/resumeBuilder.js"></script>
+	<script src="js/resumeBuilder.js"></script>
 
-  <!--<script type="text/javascript">
-     if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
-    }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
-    }
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.display = 'none';
-    }
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
-    }
-  </script>-->
-
-  <!--  <script type="text/javascript">
-  // $(document).click(function(loc) {
-
-  // });
-  // </script> -->
+	<!-- The following script comes from CSS Tricks for smooth scrolling -->
+	<!-- https://css-tricks.com/snippets/jquery/smooth-scrolling/ -->
+	<script>
+		$(function() {
+			$('a[href*=#]:not([href=#])').click(function() {
+				if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+					if (target.length) {
+						$('html,body').animate({
+						scrollTop: target.offset().top
+					}, 1000);
+					return false;
+					}
+				}
+			});
+		});
+	</script>
 </body>
 </html>

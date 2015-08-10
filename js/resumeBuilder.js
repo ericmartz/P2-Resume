@@ -5,6 +5,8 @@
 
 var data = '%data%'; //Since this would be used in all objects and whatnot, I thought I would make this a global scope.
 var $header = '#header'; //Thought these would be good to be global variables, since they could be used anywhere.
+var $intro = '#intro';
+var $title = '#title';
 var $topContacts = '#topContacts';
 var $education = '#education';
 var $educationEntry = '.education-entry:last';
@@ -34,8 +36,8 @@ var bio = {
 		var myMessage = HTMLWelcomeMsg.replace(data, bio.welcomeMessage);
 		var myPic = HTMLbioPic.replace(data, bio.pictureURL);
 
-		$($header).prepend(myName, myRole);
-		$($header).append(myPic, myMessage);
+		$($title).prepend(myName, myRole);
+		$($intro).append(myPic, myMessage);
 	},
 	'displayContact' : function() {
 		var myMobile = HTMLmobile.replace(data, bio.contacts.mobile);

@@ -5,17 +5,17 @@
 
 var data = '%data%'; //Since this would be used in all objects and whatnot, I thought I would make this a global scope.
 var $header = '#header'; //Thought these would be good to be global variables, since they could be used anywhere.
-var $intro = '#intro';
-var $title = '#title';
-var $topContacts = '#topContacts';
-var $education = '#education';
-var $educationEntry = '.education-entry:last';
-var $workExperience = '#workExperience';
-var $workEntry = '.work-entry:last';
-var $projects = '#projects';
-var $column4 = '.col-md-4:last';
-var $projectEntry = '.project-entry:last';
-var $footerContacts = '#footerContacts';
+var $intro = $('#intro');
+var $title = $('#title');
+var $topContacts = $('#topContacts');
+var $education = $('#education');
+var educationEntry = '.education-entry';
+var $workExperience = $('#workExperience');
+var workEntry = '.work-entry';
+var $projects = $('#projects');
+var column4 = '.col-md-4:last';
+var projectEntry = '.project-entry:last';
+var $footerContacts = $('#footerContacts');
 
 var bio = {
 	'name' : 'Eric Martz',
@@ -36,8 +36,8 @@ var bio = {
 		var myMessage = HTMLWelcomeMsg.replace(data, bio.welcomeMessage);
 		var myPic = HTMLbioPic.replace(data, bio.pictureURL);
 
-		$($title).prepend(myName, myRole);
-		$($intro).append(myPic, myMessage);
+		$title.prepend(myName, myRole);
+		$intro.append(myPic, myMessage);
 	},
 	'displayContact' : function() {
 		var myMobile = HTMLmobile.replace(data, bio.contacts.mobile);
@@ -45,8 +45,8 @@ var bio = {
 		var myGitHub = HTMLgithub.replace(data, bio.contacts.github);
 		var myLocation = HTMLlocation.replace(data, bio.contacts.location);
 
-		$($topContacts).append(myMobile, myEmail, myGitHub, myLocation);
-		$($footerContacts).append(myMobile, myEmail, myGitHub, myLocation);
+		$topContacts.append(myMobile, myEmail, myGitHub, myLocation);
+		$footerContacts.append(myMobile, myEmail, myGitHub, myLocation);
 	}
 }
 
@@ -74,8 +74,8 @@ var education = {
 			var mySchoolLocation = HTMLschoolLocation.replace(data, education.schools[i].location);
 			var mySchoolMajor = HTMLschoolMajor.replace(data, education.schools[i].major);
 
-			$($education).append(HTMLschoolStart);
-			$($educationEntry).append(mySchoolName + mySchoolDegree, mySchoolDates, mySchoolLocation, mySchoolMajor);
+			$education.append(HTMLschoolStart);
+			$(educationEntry).last().append(mySchoolName + mySchoolDegree, mySchoolDates, mySchoolLocation, mySchoolMajor);
 		}
 	}
 }
@@ -146,8 +146,8 @@ var work = {
 			var myWorkLocation = HTMLworkLocation.replace(data, work.jobs[i].location);
 			var myWorkDescription = HTMLworkDescription.replace(data, work.jobs[i].description);
 
-			$($workExperience).append(HTMLworkStart);
-			$($workEntry).append(myEmployer + myTitle, myWorkDates, myWorkLocation, myWorkDescription);
+			$workExperience.append(HTMLworkStart);
+			$(workEntry).last().append(myEmployer + myTitle, myWorkDates, myWorkLocation, myWorkDescription);
 		}
 	}
 }
@@ -207,10 +207,10 @@ var projects = {
 			var myProjectDescription = HTMLprojectDescription.replace(data, projects.projects[i].description);
 			var myProjectImage = HTMLprojectImage.replace(data, projects.projects[i].images[0]);
 
-			$($projects).append(divColumn4); // Adding bootstrap columns for the projects
-			$($column4).append(HTMLprojectStart);
-			$($projectEntry).append(myProjectImage, myProjectTitle, myProjectDate, myProjectDescription);
-			$($column4).append(divClosing);
+			$projects.append(divColumn4); // Adding bootstrap columns for the projects
+			$(column4).append(HTMLprojectStart);
+			$(projectEntry).append(myProjectImage, myProjectTitle, myProjectDate, myProjectDescription);
+			$(column4).append(divClosing);
 		}
 	}
 }

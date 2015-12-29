@@ -102,39 +102,7 @@ var work = {
 				'start_date' : 'March 2006',
 				'end_date' : 'March 2007'
 			},
-			'description' : 'As the Assistant Branch Manager my primary responsibility was to evaluate the needs of customers and offer appropriate financial products.  I also assisted in training bank personnel, managed the branch\'s day-to-day operations, and worked on any assigned special projects.'},
-		{
-			'employer' : 'Gracepointe Church',
-			'title' : 'Children\'s/Youth Pastor',
-			'location' : 'Peachtree City, GA',
-			'url' : 'http://gracepointechurch.com/index.php/ministries',
-			'dates' : {
-				'start_date' : 'April 2003',
-				'end_date' : 'March 2006'
-			},
-			'description' : 'As the Children\'s Minister/Youth Minister I directed the church\'s entire ministry from nursery through teens. I developed training for children\'s teachers to better equip and assimilate new volunteers. I created the oragnizational structure of the children\'s and youth ministries, directed outreach events, and directed fundraising initiatives, such as raising over $9,000 in one car wash.  I also performed specialized duties such as providing technical support for the church and managed the church\'s website.'
-		},
-		{
-			'employer' : 'Bank of America',
-			'title' : 'Help Desk Analyst',
-			'location' : 'Atlanta, GA',
-			'url' : 'https://www.bankofamerica.com/',
-			'dates' : {
-				'start_date' : 'September 2000',
-				'end_date' : 'April 2003'
-			},
-			'description' : 'I started as a Help Desk Analyst providing support for teller policies and procedures to bank personnel. However, a pilot program became available and I was one of a few chosen to cross train and provide technical support as well as teller support. When the cross training program was abandoned, I continued as a technical support analyst, but would provide teller policy and procedure support when needed as well.'
-		},
-		{
-			'employer' : 'Bank of America',
-			'title' : 'Teller/Head Teller',
-			'location' : 'Broken Arrow, OK/Hapeville, GA',
-			'url' : 'https://www.bankofamerica.com/',
-			'dates' : {
-				'start_date' : 'October 1997',
-				'end_date' : 'September 2000'
-			},
-			'description' : 'While my first job was a paper delivery boy in the 5th grade, this is what I would consider my first real job.  The duties were basic as a teller, and I doubt I need to go over them, but I worked hard and excelled at my position.  I quickly became the go-to guy when other tellers had questions and within a year I was performing the duties of a head teller.'
+			'description' : 'As the Assistant Branch Manager my primary responsibility was to evaluate the needs of customers and offer appropriate financial products.  I also assisted in training bank personnel, managed the branch\'s day-to-day operations, and worked on any assigned special projects.'
 		}
 	],
 	'display' : function() {
